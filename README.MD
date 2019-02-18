@@ -6,7 +6,7 @@ This comes in handy when tackling CTF challenges where `libc` isn't provided, bu
 
 # Methodlogy
 
-Given a set of 2 or more leaked symbols, it will iterate over a collection of `libc` files and find one whose symbol table contains a set of offsets for the provided symbol names which matches the relative offsets of the provided address leaks. That was a mouthful, the [__init__.py#L65-L92](comments) are a bit more thoughtful.
+Given a set of 2 or more leaked symbols, it will iterate over a collection of `libc` files and find one whose symbol table contains a set of offsets for the provided symbol names which matches the relative offsets of the provided address leaks. That was a mouthful, the [comments](__init__.py#L65-L92) are a bit more thoughtful.
 
 # Usage - Interactive
 
