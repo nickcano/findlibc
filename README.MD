@@ -1,12 +1,12 @@
 # findlibc
 
-This is a small tool I wrote to help identify a version of `libc` based on some symbols and addresses.
+This is a small tool I wrote to help identify the version of `libc` based on symbols and addresses.
 
 This comes in handy when tackling CTF challenges where `libc` isn't provided, but we're able to leak some addresses. Using these leaked addresses, we can make an educated guess as to the `libc` version, potentially easing the burden of exploitation.
 
 # Methodlogy
 
-Given a set of 2 or more leaked symbols, it will iterate over a collection of `libc` files and find one whose symbol table contains a set of offsets for the provided symbols which matches the relative offsets of the leaked addresses.
+Given a set of 2 or more leaked symbols, it will iterate over a collection of `libc` files and find one whose symbol table contains a set of offsets for the provided symbol names which matches the relative offsets of the provided address leaks. That was a mouthful, the [__init__.py#L65-L92](comments) are a bit more thoughtful.
 
 # Usage - Interactive
 
@@ -23,10 +23,10 @@ import findlibc
 
 funcs = {
 	"read":   0x7f76847cf250,
-    "puts":   0x7f7684747690,
-    "system": 0x7f768471d390,
-    "free":   0x7f768475c4f0,
-    "malloc": 0x7f768475c130,
+	"puts":   0x7f7684747690,
+	"system": 0x7f768471d390,
+	"free":   0x7f768475c4f0,
+	"malloc": 0x7f768475c130,
 }
 
 findlibc.find(funcs, arch='any', many=True)
@@ -40,7 +40,7 @@ The returned tuple(s) are `(libc, filename)` where `libc` is a `pwntools.ELF` an
 
 Hard dependency on `pwntools`. This also implies a dependency on `python2.7`, as that is what pwntools supports.
 
-If you want to get it running on any other version using custom or unofficial `pwntools` forks, GLHF.
+If you want to get it running on any other version using a custom or unofficial `pwntools` fork, GLHF.
 
 # Libc Files
 
