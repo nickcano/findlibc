@@ -1,6 +1,6 @@
 # findlibc
 
-This is a small tool I wrote to help identify the version of `libc` based on symbols and addresses.
+This is a small tool I wrote to help identify a version of `libc` given some leaked addresses and their symbol names.
 
 This comes in handy when tackling CTF challenges where `libc` isn't provided, but we're able to leak some addresses. Using these leaked addresses, we can make an educated guess as to the `libc` version, potentially easing the burden of exploitation.
 
@@ -29,7 +29,7 @@ funcs = {
 	"malloc": 0x7f768475c130,
 }
 
-findlibc.find(funcs, arch='any', many=True)
+results = findlibc.find(funcs, arch='any', many=True)
 ```
 
 The first argument should be a dictionary of symbols. The following option arguments are first an architecture (default `'any'`) and second whether you want all macthes (`True`, returns a list of tuples) or the first match (`False`, default, returns a tuple).
