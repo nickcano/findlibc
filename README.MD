@@ -2,7 +2,7 @@
 
 This is a small tool I wrote to help identify a version of `libc` given some leaked addresses and their symbol names.
 
-This comes in handy when tackling CTF challenges where `libc` isn't provided, but was able to leak some addresses. Using these leaked addresses, we can make an educated guess as to the `libc` version, potentially easing the burden of exploitation.
+This comes in handy when tackling CTF challenges where `libc` isn't provided, but we're able to leak some addresses. Using these leaked addresses, we can make an educated guess as to the `libc` version, potentially easing the burden of exploitation.
 
 # Methodology
 
